@@ -2,12 +2,8 @@
 FROM rust:1.76-slim-bookworm AS builder
 
 WORKDIR /app
-COPY Cargo.toml .
-RUN mkdir src && echo "fn main(){}" > src/main.rs
-RUN cargo build --release
-RUN rm -rf src
-
 COPY . .
+
 RUN cargo build --release
 
 # ===== runtime stage =====
@@ -18,6 +14,6 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-COPY --from=builder /app/target/release/rust-bot .
+COPY --from=builder /app/target/release/discord-bot-rust .
 
-CMD ["./rust-bot"]
+CMD ["./discord-bot-rust"]
