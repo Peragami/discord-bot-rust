@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-twilight-gateway = { version = "0.17", default-features = false, features = ["rustls"] }
-twilight-http = { version = "0.17", default-features = false, features = ["rustls"] }
+twilight-gateway = "0.17"
+twilight-http = "0.17"
 twilight-model = "0.17"
 tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
 anyhow = "1"
