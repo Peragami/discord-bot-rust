@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  rust-bot:
+  discord-bot-rust:
     build: .
-    container_name: rust-bot
+    container_name: discord-bot-rust
     restart: unless-stopped
     environment:
       - DISCORD_TOKEN=${DISCORD_TOKEN}
