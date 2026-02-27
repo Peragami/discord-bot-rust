@@ -1,5 +1,12 @@
 # ===== build stage =====
-FROM rust:1.76-slim-bookworm AS builder
+FROM rust:1.76-bookworm AS builder
+
+RUN apt-get update && apt-get install -y \
+    pkg-config \
+    libssl-dev \
+    build-essential \
+    cmake \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 COPY . .
@@ -11,6 +18,7 @@ FROM debian:bookworm-slim
 
 RUN apt-get update && apt-get install -y \
     ca-certificates \
+    libssl3 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
