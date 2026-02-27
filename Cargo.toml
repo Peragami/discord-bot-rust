@@ -1,0 +1,11 @@
+[package]
+name = "discord-bot-rust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1.49", features = ["macros", "rt-multi-thread", "signal"] }
+twilight-gateway = "0.17.1"
+twilight-http = "0.17.1"
+twilight-model = "0.17.1"
+anyhow = "1"
